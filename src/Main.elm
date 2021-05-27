@@ -94,7 +94,7 @@ update msg model =
 main : Program String Model Msg
 main =
     Browser.element
-        { init = \model -> ( init model, Cmd.none )
+        { init = \flags -> ( init flags, Cmd.none )
         , update = \msg model -> ( update msg model, Cmd.none )
         , view = view
         , subscriptions = \_ -> Sub.none
