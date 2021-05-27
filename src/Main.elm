@@ -33,8 +33,7 @@ init weekday =
 -- 📩 messages 📩
 
 
-type Msg
-    = ToggleNightMode
+type Msg = ToggleNightMode
 
 
 
@@ -45,21 +44,11 @@ type Msg
 
 
 darkStyle : Bool -> List (Attribute msg)
-darkStyle active =
-    if active then
-        [ class "dark" ]
-
-    else
-        []
+darkStyle active = if active then [ class "dark" ] else []
 
 
 toggleIcon : Bool -> Html msg
-toggleIcon active =
-    if active then
-        text "light_mode"
-
-    else
-        text "dark_mode"
+toggleIcon active = text (if active then "light_mode" else "dark_mode")
 
 
 
@@ -73,14 +62,10 @@ view : Model -> Html Msg
 view model =
     section (id "greeting" :: darkStyle model.nightMode)
         [ div [ class "card" ]
-            [ h1 [] [ text "hej!" ]
-            , p []
-                [ text "idag är ", strong [] [ text model.weekday ], text "." ]
+            [ h1 [] [ text "🎈 it works!" ]
+            , p [] [ text ("have a lovely " ++ model.weekday ++ ".") ]
             , button
-                [ id "night-mode-toggle"
-                , class "material-icons-round"
-                , onClick ToggleNightMode
-                ]
+                [ id "night-mode-toggle", class "material-icons-round", onClick ToggleNightMode ]
                 [ toggleIcon model.nightMode ]
             ]
         ]
@@ -96,8 +81,7 @@ view model =
 update : Msg -> Model -> Model
 update msg model =
     case msg of
-        ToggleNightMode ->
-            { model | nightMode = not model.nightMode }
+        ToggleNightMode -> { model | nightMode = not model.nightMode }
 
 
 
