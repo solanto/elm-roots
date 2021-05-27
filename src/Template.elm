@@ -17,7 +17,7 @@ import Html.Events exposing (..)
 type alias Model = { todo: Int {- implement model -} }
 
 
-init: Int -> ( Model, Cmd msg )
+init: String -> ( Model, Cmd msg )
 init flags = ( { todo = Debug.todo "implement init" }, Cmd.none )
 
 
