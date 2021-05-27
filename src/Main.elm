@@ -48,7 +48,7 @@ darkStyle active = if active then [ class "dark" ] else []
 
 
 toggleIcon : Bool -> Html msg
-toggleIcon active = text (if active then "light_mode" else "dark_mode")
+toggleIcon active = text ( if active then "light_mode" else "dark_mode" )
 
 
 
@@ -63,7 +63,7 @@ view model =
     section (id "greeting" :: darkStyle model.nightMode)
         [ div [ class "card" ]
             [ h1 [] [ text "🎈 it works!" ]
-            , p [] [ text ("have a lovely " ++ model.weekday ++ ".") ]
+            , p [] [ text ( "have a lovely " ++ model.weekday ++ "." ) ]
             , button
                 [ id "night-mode-toggle", class "material-icons-round", onClick ToggleNightMode ]
                 [ toggleIcon model.nightMode ]
